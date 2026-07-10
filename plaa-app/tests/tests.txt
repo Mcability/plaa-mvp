@@ -1,0 +1,98 @@
+# Tests
+
+## Test 1 - Landing page loads with sign-in CTA [sanity]
+Viewport: desktop
+Description: Verifies the app loads and shows the PLAA landing page for a signed-out visitor.
+
+Steps:
+1. Navigate to the app
+2. Wait for the page to fully load
+
+Expected: The "PLAA" wordmark and a "Sign In to Start Building" button are visible.
+
+## Test 2 - Signed-in user reaches the dashboard
+Viewport: mobile
+Description: Verifies a user can sign in and see the private project dashboard instead of the landing page.
+
+Steps:
+1. Navigate to the app
+2. Tap "Sign In"
+3. Complete the sign-in flow
+4. Wait for the dashboard to load
+
+Expected: "Your Projects" heading and a "New Project" button are visible, and the landing page's "Sign In to Start Building" CTA is no longer visible.
+
+## Test 3 - Creating a project without a name shows a validation error
+Viewport: mobile
+Description: Verifies the new project form blocks submission when the name is empty.
+
+Steps:
+1. Navigate to the app and sign in
+2. Tap "New Project"
+3. Leave the project name field empty
+4. Tap "Create Project"
+
+Expected: A validation message saying a project name is required is shown, and the modal stays open.
+
+## Test 4 - New project appears on the dashboard
+Viewport: desktop
+Description: Verifies a newly created project shows up as a card on the dashboard.
+
+Steps:
+1. Navigate to the app and sign in
+2. Tap "New Project"
+3. Enter project name "Test Hymnal 1234"
+4. Select document type "Hymnal"
+5. Tap "Create Project"
+6. Return to "All Projects"
+
+Expected: A project card titled "Test Hymnal 1234" with the "Hymnal" label is visible in the project grid.
+
+## Test 5 - AI content structuring produces editable blocks
+Viewport: desktop
+Description: Verifies pasting raw content and running AI structuring populates the block editor in the Canvas tab.
+
+Steps:
+1. Navigate to the app, sign in, and create a new Hymnal project named "Structure Test 5678"
+2. In the Intake tab, paste sample hymn text into the content textarea
+3. Click "Structure with AI"
+4. Wait for structuring to complete and switch to the "3. Canvas" tab
+
+Expected: At least one block editor row is visible in the Canvas tab containing text derived from the pasted content.
+
+## Test 6 - Editing a block persists after reload
+Viewport: desktop
+Description: Verifies manual edits to a block's text are saved and survive a page reload.
+
+Steps:
+1. Navigate to the app, sign in, and create a new Newsletter project named "Edit Persist 9012"
+2. In the Intake tab, paste sample article text and click "Structure with AI"
+3. Go to the "3. Canvas" tab and edit the first block's text to "Persisted Custom Headline"
+4. Click "Save Changes"
+5. Reload the page and reopen the same project's Canvas tab
+
+Expected: The first block's text field still shows "Persisted Custom Headline" after reload.
+
+## Test 7 - Selecting a style proposal applies it to the live preview
+Viewport: desktop
+Description: Verifies generating and selecting an AI style proposal updates the canvas preview's selected style.
+
+Steps:
+1. Navigate to the app, sign in, and create a new Hymnal project named "Style Select 3456"
+2. In the Intake tab, paste sample hymn text and click "Structure with AI"
+3. Go to the "2. Style" tab and click "Generate Proposals"
+4. Wait for three style proposal cards to appear and click the first one
+
+Expected: The selected style proposal card shows a checkmark indicator confirming it is selected.
+
+## Test 8 - Print/export view renders paginated pages
+Viewport: desktop
+Description: Verifies the export flow opens a print-ready view showing the publication's paginated layout.
+
+Steps:
+1. Navigate to the app, sign in, and create a new Hymnal project named "Export View 7890"
+2. In the Intake tab, paste sample hymn text and click "Structure with AI"
+3. Go to the "4. Export" tab
+4. Click "Open Print / Export View"
+
+Expected: A print-ready page view loads showing the project's content with a visible "Print / Save as PDF" button.
